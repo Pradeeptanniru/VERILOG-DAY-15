@@ -1,0 +1,43 @@
+
+//DESIGN CODE
+module halfadderusingconditional(
+    input a,b,
+    output reg s,c
+    );
+always@(a,b)
+begin
+    if(a==0 && b==0)
+        begin
+            s=0;
+            c=0;
+        end
+    else if(a==1 && b==1)
+        begin
+            s=0;
+            c=1;
+        end
+    else
+        begin
+            s=1;
+            c=0;
+        end
+end    
+endmodule
+
+
+
+
+//TEST BENCH
+module halfadderusingconditional_tb;
+reg a;
+reg b;
+wire s;
+wire c;
+halfadderusingconditional uut(.a(a),.b(b),.s(s),.c(c));
+initial begin
+a=0;b=0;#100;
+a=0;b=1;#100;
+a=1;b=0;#100;
+a=1;b=1;#100;
+end
+endmodule
